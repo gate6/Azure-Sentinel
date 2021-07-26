@@ -88,9 +88,6 @@ def single_ent_events(KVUri= None, ent_name= None, api_key= None, lookout_mes_ur
         processed_events = []
         for event in events:
             event['enterprise_name'] = ent_name
-            event['TimeGenerated'] = event['eventTime']
-            event.remove('eventTime')
-            event['EventEndTime'] = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
             processed_events.append(event)
             
         post_status_code = post_data(json.dumps(processed_events))
