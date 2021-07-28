@@ -89,9 +89,6 @@ def single_ent_events(KVUri= None, ent_name= None, api_key= None, lookout_mes_ur
         processed_events = []
         for event in events:
             event['enterprise_name'] = ent_name
-            event['EventStartTime'] = event["eventTime"] 
-            event['EventEndTime'] = event["eventTime"]
-            event['TimeGenerated'] = event["eventTime"]
             processed_events.append(event)
             
         post_status_code = post_data(json.dumps(processed_events))
