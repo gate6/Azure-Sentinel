@@ -65,8 +65,7 @@ def post_data(body):
         'content-type': content_type,
         'Authorization': signature,
         'Log-Type': log_type,
-        'x-ms-date': rfc1123date,
-        'time-generated-field' : 'time_collected'
+        'x-ms-date': rfc1123date
     }
     response = requests.post(uri,data=body, headers=headers)
     if (response.status_code >= 200 and response.status_code <= 299):
